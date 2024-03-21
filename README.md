@@ -1,2 +1,2 @@
 # myangular
-This repo will include angular projects only
+My angular project
