@@ -1,2 +1,2 @@
 # myangular
-My angular project
+My angular project.
