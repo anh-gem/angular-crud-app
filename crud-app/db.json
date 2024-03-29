@@ -1,0 +1,76 @@
+{
+  "users": [
+    {
+      "id": "c2d7",
+      "firstName": "Meghna",
+      "lastName": "Sarkar",
+      "email": "meghna@gmail.com",
+      "dob": "1997-01-12T18:30:00.000Z",
+      "gender": "female",
+      "education": "Post Graduate",
+      "company": "Capgemini",
+      "experience": 2,
+      "package": 4.5
+    },
+    {
+      "id": "c8d5",
+      "firstName": "Tiyas",
+      "lastName": "Das",
+      "email": "tiyas@gmail.com",
+      "dob": "1999-07-10T18:30:00.000Z",
+      "gender": "female",
+      "education": "Post Graduate",
+      "company": "Google",
+      "experience": 3,
+      "package": 12
+    },
+    {
+      "id": "81a5",
+      "firstName": "Meghna",
+      "lastName": "Sarkar",
+      "email": "meghna@gmail.com",
+      "dob": "1997-01-12T18:30:00.000Z",
+      "gender": "female",
+      "education": "Post Graduate",
+      "company": "Capgemini",
+      "experience": 2,
+      "package": 4.5
+    },
+    {
+      "id": "6eff",
+      "firstName": "Tiyas",
+      "lastName": "Das",
+      "email": "tiyas@gmail.com",
+      "dob": "1999-07-10T18:30:00.000Z",
+      "gender": "female",
+      "education": "Post Graduate",
+      "company": "Google",
+      "experience": 3,
+      "package": 12
+    },
+    {
+      "id": "966c",
+      "firstName": "Meghna",
+      "lastName": "Sarkar",
+      "email": "meghna@gmail.com",
+      "dob": "1997-01-12T18:30:00.000Z",
+      "gender": "female",
+      "education": "Post Graduate",
+      "company": "Capgemini",
+      "experience": 2,
+      "package": 4.5
+    },
+    {
+      "id": "44a7",
+      "firstName": "Tiyas",
+      "lastName": "Das",
+      "email": "tiyas@gmail.com",
+      "dob": "1999-07-10T18:30:00.000Z",
+      "gender": "female",
+      "education": "Post Graduate",
+      "company": "Google",
+      "experience": 3,
+      "package": 12
+    }
+  ]
+}

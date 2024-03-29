@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
+import { UserService } from '../services/user.service';
+import { DialogRef } from '@angular/cdk/dialog';
 
 @Component({
   selector: 'app-add-edit',
@@ -16,9 +18,7 @@ export class AddEditComponent {
     'Graduate',
     'Post Graduate'
   ]
-  constructor(
-    private _fb: FormBuilder
-  ) {
+  constructor(private _fb: FormBuilder, private _userService:UserService, private _dialogref:DialogRef<AddEditComponent>) {
     this.userForm = this._fb.group({
       firstName: '',
       lastName: '',
@@ -34,7 +34,15 @@ export class AddEditComponent {
 
   onFormSubmit(){
     if(this.userForm.valid){
-      console.log(this.userForm.value);
+      this._userService.addUser(this.userForm.value).subscribe({
+        next: (val:any) => {
+           alert('User added successfully');
+           this._dialogref.close();
+        },
+        error: (err:any)=>{
+           console.log(err);
+        }
+      });
     }
   }
 }
