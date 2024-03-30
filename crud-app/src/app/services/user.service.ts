@@ -16,7 +16,11 @@ export class UserService {
     return this._http.get("http://localhost:3000/users")
   }
 
-  deleteUser(data:any):Observable<any>{
-    return this._http.get("http://localhost:3000/users/:id")
+  deleteUser(id:any):Observable<any>{
+    return this._http.delete(`http://localhost:3000/users/${id}`)
+  }
+
+  updateUser(id:any,data:any):Observable<any>{
+    return this._http.put(`http://localhost:3000/users/${id}`, data)
   }
 }

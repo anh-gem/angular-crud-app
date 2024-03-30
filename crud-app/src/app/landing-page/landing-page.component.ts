@@ -5,6 +5,10 @@ import {MatSort, MatSortModule} from '@angular/material/sort';
 import {MatTableDataSource, MatTableModule} from '@angular/material/table';
 import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
+import { SharedService } from '../services/shared.service';
+import { AddEditComponent } from '../add-edit/add-edit.component';
+import { MatDialog } from '@angular/material/dialog';
+import { CoreService } from '../core/core.service';
 
 @Component({
   selector: 'app-landing-page',
@@ -28,9 +32,19 @@ export class LandingPageComponent implements OnInit {
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort; 
-  constructor(private _userService: UserService) { }
+  constructor(
+    private _userService: UserService, 
+    private _sharedService: SharedService, 
+    private _dialog:MatDialog,
+    private _coreService:CoreService,
+    ) { }
   ngOnInit(): void {
     this.getUserList();
+
+     // Subscribe to userListUpdate$ to listen for updates
+     this._sharedService.userListUpdate$.subscribe(() => {
+      this.getUserList();
+    });
   }
 
   getUserList() {
@@ -51,5 +65,30 @@ export class LandingPageComponent implements OnInit {
     if (this.dataSource.paginator) {
       this.dataSource.paginator.firstPage();
     }
+  }
+
+  deleteUser(id: number) {
+    this._userService.deleteUser(id).subscribe({
+      next: (val) => {
+        this.getUserList();
+        let confirmation = confirm("Are you sure you want to delete this user?")
+        if(confirmation){
+          console.log("User Deleted.")
+        }
+     },
+     error: console.log,
+    })
+  }
+
+  openEditForm(data: any) {
+    const dialogRef = this._dialog.open(AddEditComponent, {
+      data,// Pass data to the dialog for editing
+    });
+    
+    dialogRef.afterClosed().subscribe((result) => {
+      if (result) {
+        this._sharedService.triggerUserListUpdate(); // Trigger the userListUpdate$
+      }
+    });
   }
 }

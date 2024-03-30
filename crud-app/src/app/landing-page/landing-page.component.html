@@ -67,13 +67,18 @@
             <td mat-cell *matCellDef="let row"> {{row.package | currency:'INR'}}L </td>
         </ng-container>
 
-        <!-- Package Column -->
+        <!-- Action Column -->
         <ng-container matColumnDef="action">
             <th mat-header-cell *matHeaderCellDef mat-sort-header> Action </th>
             <td mat-cell *matCellDef="let row"> 
-                <button mat-fab color="primary" aria-label="Example icon button with a delete icon">
+                <div class="action-buttons">
+                <button mat-icon-button color="primary" (click)="openEditForm(row)">
+                    <mat-icon>edit</mat-icon>
+                  </button>
+                <button mat-icon-button color="warn" (click)="deleteUser(row.id)">
                     <mat-icon>delete</mat-icon>
                   </button>
+                </div>
             </td>
         </ng-container>
 
